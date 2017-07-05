@@ -3,7 +3,7 @@
 Imports needed:
 
  inside of `Requirements.txt`
- Reddit App secret and app ID have to be created in a file called `AppInfo.py`
+ Reddit App secret and app ID have to be created in a file called `AppInfo.py` inside clients directory.
 
 
 

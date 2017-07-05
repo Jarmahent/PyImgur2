@@ -1,6 +1,6 @@
 import click
 import pyimgur
-
+import random
 from clients import reddit
 
 from clients import AppInfo
@@ -17,7 +17,10 @@ def start_download(sleep, subreddit):
 
     url = r.get_random_submission()
     r.process_url(url)
+    print(url)
+
 
 
 if __name__ == '__main__':
-    start_download()
+    while True:
+        start_download()
