@@ -1,9 +1,8 @@
 import click
-import pyimgur
-import random
 from clients import reddit
-
 from clients import AppInfo
+
+
 @click.command()
 @click.option('--sleep', type=click.IntRange(30, 120), default=30, help='How long should we sleep for?')
 @click.option('--subreddit', help='Where should we download images from?', default='pics')
@@ -22,5 +21,4 @@ def start_download(sleep, subreddit):
 
 
 if __name__ == '__main__':
-    while True:
-        start_download()
+    start_download()
