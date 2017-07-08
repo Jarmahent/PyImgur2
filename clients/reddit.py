@@ -2,9 +2,10 @@ from praw import Reddit as PrawReddit
 import os
 import string
 import random
+import time
 from random import randint
 from urllib import request
-from pyimgur import Imgur as pimg
+import pyimgur
 class Reddit():
 
     def __init__(self, app_id, app_secret, subreddit, pimg_id, pimg_secret):
@@ -15,12 +16,11 @@ class Reddit():
             client_secret=app_secret,
             user_agent="This is my user agent"
         )
-        self._Imgur = pimg(
+        self._pimg = pyimgur.Imgur(
             client_id = pimg_id,
             client_secret = pimg_secret
         )
         self._localDirectory = os.path.expanduser("~")
-        print(os.path.join(self._localDirectory, "Pictures", "PyPics") + "\\test" + ".jpg")
         if not os.path.exists(os.path.join(self._localDirectory, "Pictures", "PyPics")):
             os.makedirs(os.path.join(self._localDirectory, "Pictures", "PyPics"))
             print("Creating Path for pictures...")
@@ -32,13 +32,17 @@ class Reddit():
         return self._reddit.subreddit(self._subreddit).random().url
 
     def process_url(self, url):
-        if(not ".jpg" in url and "imgur" in url):
+        if not ".jpg" in url and "imgur" in url:
             imgur_url = url.split('/')[-1].split('.')[0]
-            pimg.get_image(imgur_url).download(path=os.path.join(self._localDirectory, "Pictures", "PyPics"), name=self.generate_name(), overwrite=False, size=None)
+            print(imgur_url)
+            self._pimg.get_image(id=imgur_url).download(path=os.path.join(self._localDirectory, "Pictures", "PyPics"), name=self.generate_name(), overwrite=False, size=None)
             print("Base Imgur URL")
-        if(".jpg" in url):
+        if ".jpg" in url:
             request.urlretrieve(url, os.path.join(self._localDirectory, "Pictures", "PyPics") + "{}{}{}".format("\\", self.generate_name(), ".jpg"))
             print(" JPG format ")
+    def sleep(self, seconds):
+        print('Sleeping for {} {}'.format(seconds, 'seconds'))
+        return time.sleep(seconds)
 
 
 
