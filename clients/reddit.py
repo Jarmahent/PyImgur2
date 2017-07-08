@@ -7,7 +7,6 @@ from random import randint
 from urllib import request
 import pyimgur
 class Reddit():
-
     def __init__(self, app_id, app_secret, subreddit, pimg_id, pimg_secret):
         self._subreddit = subreddit
 

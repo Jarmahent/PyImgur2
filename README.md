@@ -13,7 +13,7 @@ Imports needed:
 
  `--subreddit` :Which subreddit from Reddit.com will the Script be fetching images from.
 
- `--loop` :Should the script run in a loop? How many times?
+ `--repeat` :Should the script run in a loop? How many times?
 
 
 
