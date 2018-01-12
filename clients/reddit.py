@@ -22,7 +22,8 @@ class Reddit():
         self._localDirectory = os.path.expanduser("~")
         if not os.path.exists(os.path.join(self._localDirectory, "Pictures", "PyPics")):
             os.makedirs(os.path.join(self._localDirectory, "Pictures", "PyPics"))
-            print("Creating Path for pictures...")
+            print("Creating Path for pictures... \n Path created in Pictures directory"")
+
 
     def generate_name(self, size=randint(3, 10), chars=string.ascii_uppercase + string.digits):  # Create random ID
         return ''.join(random.choice(chars) for _ in range(size))
@@ -42,8 +43,3 @@ class Reddit():
     def sleep(self, seconds):
         print('Sleeping for {} {}'.format(seconds, 'seconds'))
         return time.sleep(seconds)
-
-
-
-
-
