@@ -22,7 +22,7 @@ class Reddit():
         self._localDirectory = os.path.expanduser("~")
         if not os.path.exists(os.path.join(self._localDirectory, "Pictures", "PyPics")):
             os.makedirs(os.path.join(self._localDirectory, "Pictures", "PyPics"))
-            print("Creating Path for pictures... \n Path created in Pictures directory"")
+            print("Creating Path for pictures... \n Path created in Pictures directory")
 
 
     def generate_name(self, size=randint(3, 10), chars=string.ascii_uppercase + string.digits):  # Create random ID
